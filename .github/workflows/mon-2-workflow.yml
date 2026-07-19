@@ -1,0 +1,25 @@
+name: Workflow avec plusieurs etapes
+
+on: [push]
+
+jobs:
+  mon-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le code du depot
+        uses: actions/checkout@v4
+
+      - name: Verifier les fichiers presents
+        run: ls -la
+
+      - name: Creer un fichier de test
+        run: echo "ceci est un test" > test.txt
+
+      - name: Afficher le contenu du fichier
+        run: cat test.txt
+
+      - name: Simuler une installation
+        run: echo "Installation des dependances..."
+
+      - name: Simuler des tests
+        run: echo "Tous les tests sont passes avec succes !"
